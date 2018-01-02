@@ -7,32 +7,22 @@ namespace first_csharp
     {
         static void Main(string[] args)
         {
-            List<string> bikes = new List<string>();
+            Dictionary<string,string> profile = new Dictionary<string,string>();
 
-            bikes.Add("Kawasaki");
-            bikes.Add("Triumph");
-            bikes.Add("BMW");
-            bikes.Add("Moto Guzzi");
-            bikes.Add("Harley Davidson");
-            bikes.Add("Suzuki");
-
-            bikes.Insert(2, "Yamaha");
-
-            System.Console.WriteLine("the current manufacturers we have seen are:");
-            for (var i = 0; i < bikes.Count; i++)
+            profile.Add("Name", "Henry");
+            profile.Add("Language", "C#");
+            profile.Add("Location", "Seattle");
+            
+            System.Console.WriteLine("User Profile:");
+            System.Console.WriteLine("Name - " + profile["Name"]);
+            System.Console.WriteLine("From - " + profile["Location"]);
+            System.Console.WriteLine("Favorite language - " + profile["Language"]);
+            
+            foreach(KeyValuePair<string,string> entry in profile)
             {
-                System.Console.WriteLine("-" + bikes[i]);
+                System.Console.WriteLine(entry.Key + " - " + entry.Value);
             }
 
-            bikes.Remove("Suzuki");
-            bikes.Remove("Yamaha");
-            bikes.RemoveAt(0);
-
-            System.Console.WriteLine("List on non japanese manufacturers:");
-            foreach(string manu in bikes)
-            {
-                System.Console.WriteLine("-" + manu);
-            }
 
         }
     }
